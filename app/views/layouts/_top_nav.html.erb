@@ -36,13 +36,27 @@
 
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <span class="text-danger"><%= fa_icon 'lock', text: current_user.name if current_user %></span>
+
+            <% if current_user %>
+            <span class="text-danger"><%= fa_icon 'lock', text: '' %></span>
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to 'logout', [:admin, :root] %></li>
+            <li><%= link_to 'logout', '/logout' %></li>
           </ul>
         </li>
+            <% else %>
+        <li>
+            <span class="text-danger"><%= fa_icon 'sign-in', text: "" %></span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Sign In', login_path %></li>
+            <li><%= link_to 'Register', signup_path %></li>
+          </ul>
+        </li>
+            <% end %>
+
 
 
         <ul class="dropdown-menu">
