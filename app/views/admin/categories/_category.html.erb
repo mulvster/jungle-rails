@@ -2,4 +2,11 @@
   <td>
     <%= category.name %>
   </td>
+  <td>
+    <%= link_to fa_icon('trash'), admin_category_path(category), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+  </td>
 </tr>
+
+
+<!--This does the same thing as the code above.-->
+<!--<a href="/admin/categories/<%= category.id %>"> DELETE THIS CATEGORY</a>-->
