@@ -16,14 +16,24 @@
       Details &raquo;
     <% end %>
   </footer>
-
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>
+<<<<<<< HEAD
 
   <% if product.quantity == 0  %>
       <aside class="sold-out-banner">
         Sold Out!
       </aside>
+=======
+  <% if product.quantity > 0 %>
+  <aside class="qty">
+    <%= product.quantity %> left
+  </aside>
+  <% else %>
+  <aside class="sold-out">
+    SOLD OUT!
+  </aside>
+>>>>>>> feature/product-ratings
   <% end %>
 </article>
