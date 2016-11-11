@@ -3,7 +3,7 @@
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
-
+ <% if cart.length > 0 %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -49,5 +49,7 @@
       <% end %>
     </div>
   </div>
-
+<% else %>
+  You do not currently have any items in your cart please select an item @ <%= link_to "our store", root_path%>
+  <% end %>
 </section>
