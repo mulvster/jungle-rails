@@ -1,12 +1,15 @@
 <section class="cart-show">
+
   <header class="page-header">
     <h1>Thanks for your order!</h1>
   </header>
+
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
       <tr>
         <th colspan="2">Product</th>
+
         <th>Quantity</th>
         <th>Price</th>
       </tr>
@@ -20,10 +23,15 @@
       <tr>
         <th colspan="4">
           TOTAL:
+
           <%= @order.total %>
+
         </th>
+
+
       </tr>
       </tfoot>
     </table>
   </div>
+
 </section>
