@@ -26,7 +26,7 @@ cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 
-## PRODUCTS
+## PRODUCTS'
 
 puts "Re-creating Products ..."
 
@@ -146,6 +146,41 @@ User.create!({
     email: "tommy@gmail.com",
     password_digest: "hello"
 })
+
+User.create({
+  name: "Hayden",
+  email: "cookie@milk.com",
+  password_digest: "moody"
+  })
+User.create({
+  name: "David",
+  email: "Donnie@milk.com",
+  password_digest: "judy"
+  })
+User.create({
+  name: "Hayden",
+  email: "Johanthan@milk.com",
+  password_digest: "ruby"
+  })
+
+Review.create!({
+  description: Faker::Hipster.paragraph(4),
+  user_id: 1,
+  product_id: 1,
+  rating: 5
+  })
+Review.create!({
+  description: Faker::Hipster.paragraph(4),
+  user_id: 2,
+  product_id: 2,
+  rating: 5
+  })
+Review.create!({
+  description: Faker::Hipster.paragraph(4),
+  user_id: 3,
+  product_id: 3,
+  rating: 5
+  })
 
 
 ###################### REVIEWS ####################

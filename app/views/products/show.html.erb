@@ -15,6 +15,7 @@
       <div class="col-sm-8">
         <dl class="dl-horizontal">
           <dt>Name</dt>
+
           <dd><%= @product.name %></dd>
           <dt>Description</dt>
           <dd><%= @product.description %></dd>
@@ -25,6 +26,69 @@
         </dl>
       </div>
     </div>
+    <div class="col-sm-4">
+    <% @reviews.reverse_each do |review| %>
+    
+     <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th colspan="2">Rating</th>
+        <th>Username</th>
+      </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+      <tfoot>
+      <tr>
+        <th colspan="2">
+       
+          <span><%= review.rating %></span>
+        </th>
+   
+        <th colspan="4">
+          <span><%= review.user.try(:name) %></span>
+        </th>
+      </tr>
+      </tfoot>
+    </table>
+
+     <span><%= review.description %></span>
+     <%= link_to fa_icon('trash'), product_review_path(@product, review.id), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+    <br/>
+    
+    <br/>
+    
+    <% end %>
+    <div >
+    <% if current_user %>
+    <%= form_for [@product, @review] do |f| %>
+
+    <p>
+      <%= f.label :description %>
+        </br>
+      <%= f.text_area :description %>
+        </br>
+     <span>Please rate me: <%= f.select(:rating, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]])) %> </span>
+
+        </br>
+      <%= f.submit "Create Review" %>
+
+    </p>
+
+    <% end %>
+    <%  else %>
+
+    <p> Please login to post a review </p>
+
+    <% end %>
+
+
+
+
+    </div>
+    </div>
+
 
   </article>
 
