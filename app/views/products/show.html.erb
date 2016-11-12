@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="col-sm-4">
-    <% @reviews.each do |review| %>
+    <% @reviews.reverse_each do |review| %>
     
      <table class="table table-bordered">
       <thead>
@@ -42,6 +42,7 @@
       <tfoot>
       <tr>
         <th colspan="2">
+       
           <span><%= review.rating %></span>
         </th>
    
@@ -53,12 +54,14 @@
     </table>
 
      <span><%= review.description %></span>
+     <%= link_to fa_icon('trash'), product_review_path(@product, review.id), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
     <br/>
     
     <br/>
     
     <% end %>
     <div >
+    <% if current_user %>
     <%= form_for [@product, @review] do |f| %>
 
     <p>
@@ -67,11 +70,19 @@
       <%= f.text_area :description %>
         </br>
      <span>Please rate me: <%= f.select(:rating, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]])) %> </span>
+
         </br>
       <%= f.submit "Create Review" %>
+
     </p>
 
     <% end %>
+    <%  else %>
+
+    <p> Please login to post a review </p>
+
+    <% end %>
+
 
 
 
