@@ -46,7 +46,7 @@
         </th>
    
         <th colspan="4">
-          <span><%= review.user.name %></span>
+          <span><%= review.user.try(:name) %></span>
         </th>
       </tr>
       </tfoot>
@@ -58,6 +58,24 @@
     <br/>
     
     <% end %>
+    <div >
+    <%= form_for [@product, @review] do |f| %>
+
+    <p>
+      <%= f.label :description %>
+        </br>
+      <%= f.text_area :description %>
+        </br>
+     <span>Please rate me: <%= f.select(:rating, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]])) %> </span>
+        </br>
+      <%= f.submit "Create Review" %>
+    </p>
+
+    <% end %>
+
+
+
+    </div>
     </div>
 
 
