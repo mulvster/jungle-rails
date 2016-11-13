@@ -16,7 +16,10 @@
       </thead>
       <tbody>
       <% @order.line_items.each do |line_item| %>
-          <tr> <%= render 'line_item', line_item: line_item %></tr>
+
+          <% product = Product.find(line_item.product_id) %>
+
+          <tr> <%= render 'line_item', line_item: line_item, product: product %></tr>
       <% end %>
       </tbody>
       <tfoot>
@@ -28,7 +31,7 @@
 
         </th>
 
-
+ß
       </tr>
       </tfoot>
     </table>

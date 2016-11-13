@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
       if product = Product.find_by(id: product_id)
         quantity = details['quantity'].to_i
         order.line_items.new(
-          product: product,
+          product_id: product.id,
           quantity: quantity,
           item_price: product.price,
           total_price: product.price * quantity
