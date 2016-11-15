@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
       description: review_params[:description],
       rating: review_params[:rating],
       product_id: params[:product_id],
-      user_id: current_user
+      user_id: current_user.id
     )
     
     redirect_to product_path(params[:product_id])
