@@ -48,7 +48,7 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :debug
 
-  config.secret_key_base = ENV["RAILS_SECRET_KEY_BASE"]
+  config.secret_key_base = ENV["SECRET_KEY_BASE"]
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
