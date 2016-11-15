@@ -29,12 +29,12 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
             <li>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <span  <%= fa_icon 'sign-in', text: current_user.name if current_user %></span>
                 <span class="caret"></span>
               </a>
 
-              <ul class="dropdown-menu">
+              <ul id="usermenu" class="dropdown-menu">
 
                 <li><%= link_to 'Logout', logout_path %></li>
               </ul>
