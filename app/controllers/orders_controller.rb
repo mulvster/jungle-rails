@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-       ReceiptMailer.receipt_email(order).deliver_now
+      ReceiptMailer.receipt_email(order).deliver_now unless current_user.nil?
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, error: order.errors.full_messages.first
