@@ -37,9 +37,8 @@ class OrdersController < ApplicationController
   end
 
   def create_order(stripe_charge)
-
     order = Order.new(
-      email: current_user.email,
+      email: current_user.email || "",
       total_cents: cart_total,
       stripe_charge_id: stripe_charge.id, # returned by stripe
     )
